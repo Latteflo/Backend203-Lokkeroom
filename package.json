@@ -1,0 +1,20 @@
+{
+  "name": "lokkeroom-backend203",
+  "version": "1.0.0",
+  "description": "\"a lockeroom application\"",
+  "main": "server.js",
+  "author": "Florentina Simion",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "mysql2": "^3.5.2",
+    "nodemon": "^3.0.1"
+  }
+}
