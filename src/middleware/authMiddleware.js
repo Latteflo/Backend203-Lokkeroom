@@ -1,20 +1,22 @@
-// Middleware to verify JWT
-const verifyToken = (req, res, next) => {
-    const bearerHeader = req.headers['authorization'];
-    if (typeof bearerHeader !== 'undefined') {
-      const bearerToken = bearerHeader.split(' ')[1];
-      jwt.verify(bearerToken, JWT_SECRET, (err, authData) => {
-        if (err) {
-          res.status(403).json({ error: 'Forbidden' });
-        } else {
-          req.authData = authData;
-          next();    
-             }
-      });
-    } else {
-      res.status(403).json({ error: 'Forbidden' });                                                                                                                                                                 
-    }
-  }
+const mysql = require('mysql2');
+const dotenv = require('dotenv');
 
-  
-    module.exports = verifyToken;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+dotenv.config();
+
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
+});
+
+connection.connect((error) => {
+  if (error) {
+    console.error('Error connecting to database:', error);
+    return;
+  }
+  console.log('Connected to database');
+});
+
+module.exports = connection;
