@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Lockkeroom</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px 2px #ddd;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin: 10px 0;
+        font-weight: bold;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #50b3a2;
+        color: white;
+        padding: 15px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #3a9278;
+      }
+    .btn-small{
+        padding: 5px 10px;
+        background-color: #50b3a2;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #3a9278;
+    }
+    .have-account {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between; 
+      align-items: center;   
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Register for Lockkeroom</h1>
+    <form action="/register" method="post">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <label for="confirmEmail">Confirm Email:</label>
+        <input type="email" name="confirmEmail" required>
+      
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" name="confirmPassword" required>
+      
+        <button type="submit">Register</button>
+      </form>
+      
+    <div class="have-account">
+        <p>Already have an account? </p><a class="btn-small"  href="/login">Log in</a>
+      </div>
+  </div>
+</body>
+</html>
