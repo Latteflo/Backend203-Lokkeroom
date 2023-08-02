@@ -15,7 +15,6 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
 	const { email, confirmEmail, password, confirmPassword } = req.body;
-	console.log(req.body);
 	// Check if email and password are present
 	if (!email || !password) {
 		return res.status(400).json({ error: "Email and password are required" });
@@ -44,7 +43,8 @@ router.post("/register", async (req, res) => {
 
 router.get("/login", (req, res) => {
 	res.render("login");
-});
+  });
+  
 router.post("/login", (req, res) => {
 	const { email, password } = req.body;
 	connection.query("SELECT * FROM Users WHERE email = ?", [email], async (error, results) => {

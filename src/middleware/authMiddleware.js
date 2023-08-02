@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const { promisify } = require('util');
 
 const JWT_SECRET = process.env.JWT_SECRET;

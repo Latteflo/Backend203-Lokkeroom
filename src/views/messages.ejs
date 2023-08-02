@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= lobby.name %> - Lockkeroom</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><%= lobby.name %></h1>
+        <p><%= lobby.description %></p>
+    </header>
+    <section>
+        <h2>Messages</h2>
+        <ul>
+            <% messages.forEach(message => { %>
+                <li><strong><%= message.author %>:</strong> <%= message.content %></li>
+            <% }); %>
+        </ul>
+        <form action="/api/lobby/<%= lobby.id %>/messages" method="post">
+            <textarea name="content" placeholder="Type your message..."></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <footer>
+        &copy; <%= new Date().getFullYear() %> Lockkeroom. All rights reserved.
+    </footer>
+</body>
+</html>
