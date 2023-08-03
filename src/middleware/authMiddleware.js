@@ -8,6 +8,7 @@ const verify = promisify(jwt.verify);
 const authMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers['authorization'];
+    console.log("Auth Header Heady Head :", authHeader);
     const token = authHeader && authHeader.split(' ')[1];
 
     if (!token) {

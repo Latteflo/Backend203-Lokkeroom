@@ -1,0 +1,91 @@
+### Register a new user
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+  "email": "radissocoooll@cool.com",
+  "confirmEmail": "radissocoooll@cool.com",
+  "password": "guess",
+  "confirmPassword": "guess"
+}
+
+### Login with the newly registered user
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "radissocoooll@cool.com",
+  "password": "guess"
+}
+
+###Create a new lobby
+POST  http://localhost:3000/api/lobbies/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJpYXQiOjE2OTEwNjkyMjMsImV4cCI6MTY5MTA3MjgyM30.1_GS2JbEB2GCNTpQmARmZ0Eo6jZ9XAkniguDcbwk65Q
+Content-Type: application/json
+
+{
+  "name": "I know what you did last summer",
+  "description": "Yes I did!"
+}
+
+###Check all the lobbies
+GET http://localhost:3000/api/lobbies/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJpYXQiOjE2OTEwNjkyMjMsImV4cCI6MTY5MTA3MjgyM30.1_GS2JbEB2GCNTpQmARmZ0Eo6jZ9XAkniguDcbwk65Q
+Content-Type: application/json
+
+{
+  "name": "I know what you did last summer",
+  "description": "Yes I did!"
+}
+
+###Get Lobby with ID 1 (including messages)
+GET http://localhost:3000/api/lobbies/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NjY0MiwiZXhwIjoxNjkxMDcwMjQyfQ.92fJygm70KKEZ0Kbjx7U6ZViuWQec3y2hoshqkDnWco
+
+### Add a User to Lobby with ID 1
+POST http://localhost:3000/api/lobbies/1/add-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NjY0MiwiZXhwIjoxNjkxMDcwMjQyfQ.92fJygm70KKEZ0Kbjx7U6ZViuWQec3y2hoshqkDnWco
+Content-Type: application/json
+
+{
+  "addUserEmail": "radissocoooll@cool.com"
+}
+
+### Remove a User to Lobby with ID 1
+POST http://localhost:3000/api/lobbies/1/remove-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NjY0MiwiZXhwIjoxNjkxMDcwMjQyfQ.92fJygm70KKEZ0Kbjx7U6ZViuWQec3y2hoshqkDnWco
+Content-Type: application/json
+
+{
+  "addUserEmail": "radissocoooll@cool.com"
+}
+
+
+### Get Messages for Lobby with ID 1
+GET http://localhost:3000/api/messages/lobby/1/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NjY0MiwiZXhwIjoxNjkxMDcwMjQyfQ.92fJygm70KKEZ0Kbjx7U6ZViuWQec3y2hoshqkDnWco
+
+
+### Post a Message to Lobby with ID 1
+POST http://localhost:3000/api/messages/lobby/1/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NzYzOSwiZXhwIjoxNjkxMDcxMjM5fQ.X4T6Le3Ee7c9WZCFqFL_2AiCR7xa4irgQq6M_jP9M_0
+
+{
+  "content": "Raaaad issss nooottt coooollll"
+}
+
+
+### Edit Message with ID 1
+PATCH http://localhost:3000/api/messages/messages/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NzYzOSwiZXhwIjoxNjkxMDcxMjM5fQ.X4T6Le3Ee7c9WZCFqFL_2AiCR7xa4irgQq6M_jP9M_0
+
+{
+  "content": "Oh HECK YESSSSSSSSSS."
+}
+
+### Delete Message with ID 1
+DELETE http://localhost:3000/api/messages/messages/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTY5MTA2NzYzOSwiZXhwIjoxNjkxMDcxMjM5fQ.X4T6Le3Ee7c9WZCFqFL_2AiCR7xa4irgQq6M_jP9M_0
+
